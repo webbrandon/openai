@@ -1,0 +1,27 @@
+[package]
+name = "openai"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde_json = "*"
+json = "*"
+serde = { version = "*", features = ["derive"] }
+reqwest = { version = "*", features = ["json", "stream", "multipart", "blocking"] }
+tokio = { version = "*", features = ["full"] }
+log = "*"
+env_logger = "*"
+atty = "*"
+tokio-util = { version = "*", features = ["codec"] }
+rand = "0.7.3"
+viuer = "*"
+termcolor = "1.1"
+home = "*"
+crossterm = "0.25"
+ansi_colours = "1.0"
+image = "0.24"
+base64 = "0.13"
+tempfile = "3.1"
+console = { version = "0.15", default-features = false }
+lazy_static = "1.4"
+image-base64 = "0.1.0"

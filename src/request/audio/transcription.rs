@@ -14,6 +14,8 @@ pub struct OpenAIAudioTranscriptionRequest {
 }
 
 impl OpenAIAudioTranscriptionRequest {
+    pub fn new(file: PathBuf, model: String, prompt: Option<String>, response_format: String, temperature: f32, language: Option<String>) -> Self { Self { file, model, prompt, response_format, temperature, language } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIAudioTranscriptionResponse: {:#?}", response_body);
         let response: OpenAIAudioTranscriptionResponse = match serde_json::from_str(&response_body) {

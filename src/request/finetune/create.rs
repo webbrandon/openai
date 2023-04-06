@@ -29,6 +29,8 @@ pub struct OpenAIFineTuneCreateRequest {
 }
 
 impl OpenAIFineTuneCreateRequest {
+    pub fn new(training_file: String, validation_file: Option<String>, model: String, n_epochs: i32, prompt_loss_weight: f32, compute_classification_metrics: bool, suffix: Option<String>, batch_size: Option<u32>, classification_n_classes: Option<u32>, classification_positive_class: Option<String>, classification_betas: Option<Vec<String>>) -> Self { Self { training_file, validation_file, model, n_epochs, prompt_loss_weight, compute_classification_metrics, suffix, batch_size, classification_n_classes, classification_positive_class, classification_betas } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIFineTuneCreateResponse: {:#?}", response_body);
         let response: OpenAIFineTuneCreateResponse = match serde_json::from_str(&response_body) {

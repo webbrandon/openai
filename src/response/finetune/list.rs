@@ -21,7 +21,13 @@ pub struct OpenAIFineTune {
     // "training_files": [ { ... } ],
 }
 
+impl OpenAIFineTune {
+    pub fn new(id: String, object: String, updated_at: u32, created_at: u32, model: String, organization_id: String, status: String) -> Self { Self { id, object, updated_at, created_at, model, organization_id, status } }
+}
+
 impl OpenAIFineTunesResponse {
+    pub fn new(data: Vec<OpenAIFineTune>) -> Self { Self { data } }
+
 	pub fn print_tunes(self) {
 		trace!("print fine-tunes");
 		for file in &self.data {

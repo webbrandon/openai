@@ -8,6 +8,8 @@ pub struct OpenAIModelDeleteResponse {
 }
 
 impl OpenAIModelDeleteResponse {
+    pub fn new(id: String, object: String, deleted: bool) -> Self { Self { id, object, deleted } }
+
 	pub fn print_model(self) {
 		trace!("print model");
 		println!("{} - Deleted ({})" , self.id, self.deleted)

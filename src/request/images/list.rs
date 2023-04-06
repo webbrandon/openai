@@ -12,6 +12,8 @@ pub struct OpenAIImagesRequest {
 }
 
 impl OpenAIImagesRequest {
+    pub fn new(prompt: Option<String>, n: u32, size: String, response_format: String, user: Option<String>) -> Self { Self { prompt, n, size, response_format, user } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIImagesResponse: {:#?}", response_body);
         let response: OpenAIImagesResponse = match serde_json::from_str(&response_body) {

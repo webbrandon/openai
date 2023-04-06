@@ -7,6 +7,8 @@ pub struct OpenAIFineTuneCancelRequest {
 }
 
 impl OpenAIFineTuneCancelRequest {
+    pub fn new(fine_tune_id: String) -> Self { Self { fine_tune_id } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIFineTuneCancelResponse: {:#?}", response_body);
         let response: OpenAIFineTuneCancelResponse = match serde_json::from_str(&response_body) {

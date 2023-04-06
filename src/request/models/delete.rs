@@ -7,6 +7,8 @@ pub struct OpenAIModelDeleteRequest {
 }
 
 impl OpenAIModelDeleteRequest {
+    pub fn new(model_name: String) -> Self { Self { model_name } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIModelDeleteResponse: {:#?}", response_body);
         let response: OpenAIModelDeleteResponse = match serde_json::from_str(&response_body) {

@@ -12,6 +12,8 @@ pub struct OpenAICompletionEditRequest {
 }
 
 impl OpenAICompletionEditRequest {
+    pub fn new(model: String, input: String, instruction: String, temperature: f32, top_p: f32, n: u32) -> Self { Self { model, input, instruction, temperature, top_p, n } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
             let chat_response: OpenAICompletionEditResponse = match serde_json::from_str(&response_body) {
                 Ok(res) => {

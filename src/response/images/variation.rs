@@ -10,6 +10,8 @@ pub struct OpenAIImageVariationResponse {
 }
 
 impl OpenAIImageVariationResponse {
+    pub fn new(data: Vec<OpenAIImage>) -> Self { Self { data } }
+
 	pub fn print_image_url(self) {
 		trace!("print images");
 		for img in &self.data {

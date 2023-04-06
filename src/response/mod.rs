@@ -38,3 +38,7 @@ pub enum OpenAIResponse {
     OpenAIModelDeleteResponse(OpenAIModelDeleteResponse),
     None,
 }
+
+impl OpenAIResponse {
+
+}

@@ -42,6 +42,8 @@ pub struct OpenAIFineTuneDetailResponse {
 }
 
 impl OpenAIFineTuneDetailResponse {
+    pub fn new(id: String, object: String, updated_at: u32, created_at: u32, model: String, organization_id: String, status: String, events: Vec<OpenAIFineTuneEvent>, fine_tuned_model: String) -> Self { Self { id, object, updated_at, created_at, model, organization_id, status, events, fine_tuned_model } }
+
 	pub fn print_details(self) {
 		trace!("print response");
 		println!("{}:{}\nStatus ( {} )\nCreated: {}\nUpdated: {}\nFine Tune Model: {}",

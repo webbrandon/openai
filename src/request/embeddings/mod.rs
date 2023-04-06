@@ -9,6 +9,8 @@ pub struct OpenAIEmbeddingRequest {
 }
 
 impl OpenAIEmbeddingRequest {
+    pub fn new(model: String, input: String, user: String) -> Self { Self { model, input, user } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
             let chat_response: OpenAIEmbeddingResponse = match serde_json::from_str(&response_body) {
                 Ok(res) => {

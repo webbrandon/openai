@@ -8,6 +8,8 @@ pub struct OpenAIEmbeddingResponse {
 }
 
 impl OpenAIEmbeddingResponse {
+    pub fn new(data: Vec<Embedding>, model: String, usage: Usage) -> Self { Self { data, model, usage } }
+
 	pub fn print_response(self) {
 		trace!("print embedding");
         println!("Tokens Given: {}", self.usage.prompt_tokens);
@@ -28,6 +30,8 @@ pub struct Embedding {
 }
 
 impl Embedding {
+    pub fn new(object: String, embedding: Vec<f32>, index: u32) -> Self { Self { object, embedding, index } }
+
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -37,4 +41,6 @@ pub struct Usage {
 }
 
 impl Usage {
+    pub fn new(prompt_tokens: u32, total_tokens: u32) -> Self { Self { prompt_tokens, total_tokens } }
+
 }

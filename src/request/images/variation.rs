@@ -13,6 +13,8 @@ pub struct OpenAIImageVariationRequest {
 }
 
 impl OpenAIImageVariationRequest {
+    pub fn new(image: Option<PathBuf>, n: u32, size: String, response_format: String, user: Option<String>) -> Self { Self { image, n, size, response_format, user } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIImageVariationResponse: {:#?}", response_body);
         let response: OpenAIImageVariationResponse = match serde_json::from_str(&response_body) {

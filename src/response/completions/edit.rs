@@ -6,6 +6,8 @@ pub struct OpenAICompletionEditResponse {
 }
 
 impl OpenAICompletionEditResponse {
+    pub fn new(choices: Vec<Choice>) -> Self { Self { choices } }
+
 	pub fn print_choices(self) {
 		trace!("print choices");
 		let choices_count = self.choices.len();
@@ -25,6 +27,8 @@ pub struct Choice {
 }
 
 impl Choice {
+    pub fn new(text: String) -> Self { Self { text } }
+
 	fn remove_newline_prepend(self) -> String {
 		trace!("remove newline prepend");
 		self.text.replacen("\n\n", "", 1)

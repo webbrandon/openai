@@ -8,6 +8,8 @@ pub struct OpenAIFileDeleteResponse {
 }
 
 impl OpenAIFileDeleteResponse {
+    pub fn new(id: String, object: String, deleted: bool) -> Self { Self { id, object, deleted } }
+
 	pub fn print_response(self) {
 		trace!("print response");
 		println!("{}({}) - Removed ( {} )",self.id, self.object, self.deleted);

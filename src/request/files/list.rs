@@ -6,6 +6,8 @@ pub struct OpenAIFilesRequest {
 }
 
 impl OpenAIFilesRequest {
+    pub fn new() -> Self { Self {  } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIFilesResponse: {:#?}", response_body);
         let response: OpenAIFilesResponse = match serde_json::from_str(&response_body) {

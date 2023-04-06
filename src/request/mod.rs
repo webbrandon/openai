@@ -38,3 +38,7 @@ pub enum OpenAIRequest {
     OpenAIModelDeleteRequest(OpenAIModelDeleteRequest),
     None
 }
+
+impl OpenAIRequest {
+
+}

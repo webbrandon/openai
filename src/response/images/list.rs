@@ -18,7 +18,13 @@ pub struct OpenAIImage {
     pub b64_json: Option<String>,
 }
 
+impl OpenAIImage {
+    pub fn new(url: Option<String>, b64_json: Option<String>) -> Self { Self { url, b64_json } }
+}
+
 impl OpenAIImagesResponse {
+    pub fn new(data: Vec<OpenAIImage>) -> Self { Self { data } }
+
 	pub fn print_image_url(self) {
 		trace!("print images");
 		for img in &self.data {

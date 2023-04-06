@@ -7,6 +7,8 @@ pub struct OpenAIFileDeleteRequest {
 }
 
 impl OpenAIFileDeleteRequest {
+    pub fn new(filename: String) -> Self { Self { filename } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
         debug!("Formatting response to type OpenAIFileDeleteResponse: {:#?}", response_body);
         let response: OpenAIFileDeleteResponse = match serde_json::from_str(&response_body) {

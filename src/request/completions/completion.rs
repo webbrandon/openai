@@ -30,6 +30,8 @@ pub struct OpenAICompletionsRequest {
 }
 
 impl OpenAICompletionsRequest {
+    pub fn new(model: String, prompt: String, max_tokens: usize, temperature: f32, user: String, suffix: Option<String>, top_p: f32, n: u32, stream: bool, logprobs: Option<u32>, echo: bool, stop: Option<Vec<String>>, presence_penalty: f32, frequency_penalty: f32, best_of: u32, logit_bias: Option<String>) -> Self { Self { model, prompt, max_tokens, temperature, user, suffix, top_p, n, stream, logprobs, echo, stop, presence_penalty, frequency_penalty, best_of, logit_bias } }
+
     pub fn process_response(self, response_body: String) -> OpenAIResponse {
             let chat_response: OpenAICompletionsResponse = match serde_json::from_str(&response_body) {
                 Ok(res) => {
